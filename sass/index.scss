@@ -1,0 +1,59 @@
+$titleColor:pink;
+$baseTopHeight:90px;
+@mixin shadow1($p1,$p2,$p3,$p4,$color:green){
+    box-shadow: $p1 $p2 $p3 $p4 $color;
+    -webkit-box-shadow: $p1 $p2 $p3 $p4 $color;
+    -ms-box-shadow: $p1 $p2 $p3 $p4 $color;
+    -moz-box-shadow: $p1 $p2 $p3 $p4 $color;
+ }
+@function p2r($p){
+    @return $p/37.5 + rem;
+}
+@import "reset.scss";
+.title{
+    color: $titleColor;
+    font-size: p2r(30); 
+}
+
+
+.header{
+    width: 100%;
+    height: $baseTopHeight;
+    background: pink;
+    .header-c{
+        position: relative;
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        background-color: lightblue;
+        .logo{
+            display: block;
+            width: $baseTopHeight;
+            height: $baseTopHeight;
+            background-color: orange;
+        }
+        .nav{
+            height: 100%;
+            position:absolute;
+            top: 0;
+            right: 0;
+            background-color: yellow;
+            .li-item{
+                float: left;
+                margin-left: 10px;
+                width: 100px;
+                background-color: green;
+                text-align: center;
+                line-height: $baseTopHeight;
+                font-size: 18px;
+                >a{
+                    color: #fff;
+                }
+                &:hover>a{  
+                    color:orangered;
+                    @include shadow1(5px,5px,10px,10px,red);
+                }
+            }
+        }
+    }
+}
